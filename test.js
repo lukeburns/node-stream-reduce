@@ -8,7 +8,7 @@ test("count length", function(t) {
 
 	t.plan(1);
 	stream.on("error", t.ifError.bind(t));
-	stream.on("data", function(length) {
+	stream.on("end", function(length) {
 		t.equal(length, 12);
 	});
 

@@ -7,8 +7,8 @@ module.exports = function(fn, acc) {
 
 	return through(function(data) {
 		acc = fn(acc, data);
+    this.emit("data", acc);
 	}, function() {
-		this.emit("data", acc);
-		this.emit("end");
+		this.emit("end", acc);
 	});
 };
